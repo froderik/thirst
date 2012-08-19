@@ -14,6 +14,10 @@ and integrate it in whatever application you need it in. Currently you can get a
     require 'thirst'
     Pub.all
 
+and if you want the pub closest to where your IP is thought to be you can
+
+    Pub.find
+
 Each pub has a name, a latitude and a longitude. More will come later.
 
 
