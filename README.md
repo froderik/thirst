@@ -11,7 +11,10 @@ to get the nearest decent pub - then this gem is for you. Just:
 
 and integrate it in whatever application you need it in. Currently you can get all pubs with:
 
+    require 'thirst'
     Pub.all
+
+Each pub has a name, a latitude and a longitude. More will come later.
 
 
 limitations
