@@ -3,15 +3,15 @@ thirst
 
 If you ever wanted to:
 
-  Pub.find
+    Pub.find
 
 to get the nearest decent pub - then this gem is for you. Just:
 
-  gem install thirst
+    gem install thirst
 
 and integrate it in whatever application you need it in. Currently you can get all pubs with:
 
-  Pub.all
+    Pub.all
 
 
 limitations
