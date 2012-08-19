@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Fredrik Rubensson"]
   s.date = "2012-08-19"
-  s.description = "Pub.find if user.in_sweden?"
+  s.description = "TODO: longer description of your gem"
   s.email = "fredrik@eldfluga.se"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     "lib/thirst.rb",
     "lib/thirst/thirst_quencher.rb",
     "spec/spec_helper.rb",
-    "spec/thirst_quencher_spec.rb"
+    "spec/thirst_quencher_spec.rb",
+    "thirst.gemspec"
   ]
   s.homepage = "http://github.com/froderik/thirst"
   s.licenses = ["MIT"]
