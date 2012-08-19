@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "thirst"
   gem.homepage = "http://github.com/froderik/thirst"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Pub.find if user.in_sweden?}
+  gem.description = %Q{Pub.find if user.in_sweden?}
   gem.email = "fredrik@eldfluga.se"
   gem.authors = ["Fredrik Rubensson"]
   # dependencies defined in Gemfile
