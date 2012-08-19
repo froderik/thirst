@@ -1,8 +1,31 @@
 require 'mechanize'
 require 'nokogiri'
+require 'json'
+require 'geocoder'
+
+include Geocoder::Calculations
 
 class Pub
   attr_accessor :name, :latitude, :longitude
+
+  def location
+    [latitude, longitude]
+  end
+
+  def Pub::find
+    agent = Mechanize.new
+    page = agent.get 'http://freegeoip.net/json/'
+    my_location = JSON.parse page.body
+    my_latitude  = my_location['latitude'] 
+    my_longitude = my_location['longitude']
+    my_location = [my_latitude,my_longitude]
+    sorted_pubs = Pub::all.sort do |one, other|
+      distance_to_one =   distance_between my_location, one.location
+      distance_to_other = distance_between my_location, other.location
+      distance_to_one <=> distance_to_other
+    end
+    sorted_pubs.first
+  end
 
   def Pub::all
     Pub::get_me_them_pubs

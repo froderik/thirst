@@ -22,4 +22,10 @@ describe Pub do
     Pub.all.each { |pub| pub.longitude.should_not be_nil }
   end
 
+  it "should find one pub near me" do
+    nearest_pub = Pub.find
+    nearest_pub.name     .should_not be_nil
+    nearest_pub.latitude .should_not be_nil
+    nearest_pub.longitude.should_not be_nil
+  end
 end
