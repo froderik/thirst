@@ -9,5 +9,5 @@ group :development do
   gem 'rspec'
   gem 'bundler'
   gem 'jeweler'
-  gem 'autotest-standalone'
+  gem 'guard-rspec'
 end
