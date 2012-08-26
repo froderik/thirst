@@ -13,17 +13,10 @@ class Pub
   end
 
   def Pub::find options = {}
-    agent = Mechanize.new
     if options[:address]
-      address = options[:address]
-      point = Geocoder.search( address ).first.data['geometry']['location']
-      location = [point['lat'],point['lng']]
+      location = Pub::location_from_address options[:address]
     else
-      page = agent.get 'http://freegeoip.net/json/'
-      location = JSON.parse page.body
-      my_latitude  = location['latitude'] 
-      my_longitude = location['longitude']
-      location = [my_latitude,my_longitude]
+      location = Pub::location_from_current_ip
     end
     sorted_pubs = Pub::find_near location
     sorted_pubs.first
@@ -31,7 +24,7 @@ class Pub
 
   def Pub::find_near location
     Pub::all.sort do |one, other|
-      distance_to_one =   distance_between location, one.location
+      distance_to_one   = distance_between location, one.location
       distance_to_other = distance_between location, other.location
       distance_to_one <=> distance_to_other
     end
@@ -40,6 +33,21 @@ class Pub
   def Pub::all
     Pub::get_me_them_pubs
   end
+
+  def Pub::location_from_current_ip
+    agent = Mechanize.new
+    page = agent.get 'http://freegeoip.net/json/'
+    location = JSON.parse page.body
+    [location['latitude'], location['longitude']]
+  end
+
+  def Pub::location_from_address address
+    point = Geocoder.search( address ).first.data['geometry']['location']
+    [point['lat'], point['lng']]
+  end
+
+  :private
+
 
   def Pub::get_me_them_pubs
     unless defined? @@pubs
