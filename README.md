@@ -24,6 +24,7 @@ Each pub has a name, a latitude and a longitude. More will come later.
 limitations
 ===========
 
-The gem is backed up with pubs in Sweden from the list maintained by Svenska Ölfrämjandet. If you feel you need this for your own country go ahead and contribute.
+The gem is backed up with pubs in Sweden from the list maintained by Svenska Ölfrämjandet. This data is released under a creative commons license as detailed below. You can not use this gem commercially without a specific deal with Svenska Ölfrämjandet. If you feel you need this for your own country go ahead and contribute.
 
+<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://www.svenskaolframjandet.se/pubs_for_gps"><span property="dct:title">Svenska Ölfrämjandets pubdatabas</span> (<a rel="cc:attributionURL" property="cc:attributionName" href="http://www.svenskaolframjandet.se">Svenska Ölfrämjandet</a>) / <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/se/">CC BY-NC-SA 2.5</a></div> 
 
