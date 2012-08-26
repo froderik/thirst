@@ -28,4 +28,9 @@ describe Pub do
     nearest_pub.latitude .should_not be_nil
     nearest_pub.longitude.should_not be_nil
   end
+
+  it "should find oliver twist" do
+    oliver = Pub.find :address => "Repslagargatan 6, Stockholm"
+    oliver.name.should == 'Oliver Twist'
+  end
 end

@@ -12,19 +12,29 @@ class Pub
     [latitude, longitude]
   end
 
-  def Pub::find
+  def Pub::find options = {}
     agent = Mechanize.new
-    page = agent.get 'http://freegeoip.net/json/'
-    my_location = JSON.parse page.body
-    my_latitude  = my_location['latitude'] 
-    my_longitude = my_location['longitude']
-    my_location = [my_latitude,my_longitude]
-    sorted_pubs = Pub::all.sort do |one, other|
-      distance_to_one =   distance_between my_location, one.location
-      distance_to_other = distance_between my_location, other.location
+    if options[:address]
+      address = options[:address]
+      point = Geocoder.search( address ).first.data['geometry']['location']
+      location = [point['lat'],point['lng']]
+    else
+      page = agent.get 'http://freegeoip.net/json/'
+      location = JSON.parse page.body
+      my_latitude  = location['latitude'] 
+      my_longitude = location['longitude']
+      location = [my_latitude,my_longitude]
+    end
+    sorted_pubs = Pub::find_near location
+    sorted_pubs.first
+  end
+
+  def Pub::find_near location
+    Pub::all.sort do |one, other|
+      distance_to_one =   distance_between location, one.location
+      distance_to_other = distance_between location, other.location
       distance_to_one <=> distance_to_other
     end
-    sorted_pubs.first
   end
 
   def Pub::all
