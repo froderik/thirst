@@ -33,4 +33,9 @@ describe Pub do
     oliver = Pub.find :address => "Repslagargatan 6, Stockholm"
     oliver.name.should == 'Oliver Twist'
   end
+
+  it "should find relative a point" do
+    amsterdam = Pub.find :point => [57.71, 11.98]
+    amsterdam.name.should == 'Het Amsterdammertje'
+  end
 end

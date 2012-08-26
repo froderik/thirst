@@ -15,6 +15,8 @@ class Pub
   def Pub::find options = {}
     if options[:address]
       location = Pub::location_from_address options[:address]
+    elsif options[:point]
+      location = options[:point]
     else
       location = Pub::location_from_current_ip
     end
