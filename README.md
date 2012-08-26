@@ -18,6 +18,14 @@ and if you want the pub closest to where your IP is thought to be you can
 
     Pub.find
 
+furthermore an options hash can give you the closest pub to an address of a point:
+
+    oliver = Pub.find :address => "Repslagargatan 6, Stockholm"
+    oliver.name.should == 'Oliver Twist'
+
+    amsterdam = Pub.find :point => [57.71, 11.98]
+    amsterdam.name.should == 'Het Amsterdammertje'
+
 Each pub has a name, a latitude and a longitude. More will come later.
 
 
