@@ -38,4 +38,9 @@ describe Pub do
     amsterdam = Pub.find :point => [57.71, 11.98]
     amsterdam.name.should == 'Het Amsterdammertje'
   end
+
+  it "should find any number of pubs" do
+    pubs = Pub.find :count => 5
+    pubs.size.should == 5
+  end
 end

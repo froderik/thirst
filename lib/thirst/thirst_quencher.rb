@@ -21,7 +21,8 @@ class Pub
       location = Pub::location_from_current_ip
     end
     sorted_pubs = Pub::find_near location
-    sorted_pubs.first
+    count = options[:count] || 1
+    count == 1 ? sorted_pubs.first : sorted_pubs[0...count]
   end
 
   def Pub::find_near location
