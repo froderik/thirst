@@ -26,6 +26,11 @@ furthermore an options hash can give you the closest pub to an address of a poin
     amsterdam = Pub.find :point => [57.71, 11.98]
     amsterdam.name.should == 'Het Amsterdammertje'
 
+to get a number of pubs - add count to the options hash:
+
+    five_pubs = Pub.find :count => 5
+    five_pubs.size.should == 5
+
 Each pub has a name, a latitude and a longitude. More will come later.
 
 
